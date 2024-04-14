@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ethers } from 'ethers';
 import {Form, Button, Card, Image} from 'react-bootstrap';
 import {abi} from './contractABI';
