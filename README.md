@@ -2,6 +2,9 @@
 
 Convert Away DApp is a decentralized application that provides real-time conversion rates of various cryptocurrencies to USD and between different cryptocurrencies.
 
+- Deployed contract address: `0xBd7AfA95d39F1B5Dbe9D164FeCD1b4394EfEcAD7`
+- Deployed DApp Link: 
+
 ## Instructions to run the app
 - When using for local testing make sure to add .env file containing the following information
 ```
@@ -18,7 +21,3 @@ VITE_CONTRACT_ADDRESS=<add-the-contract-address-once-compiled-and-deployed-here>
 This is the value for variable `VITE_CONTRACT_ADDRESS` in the .env file.
 - Run the app using the following command
 `yarn dev`
-
-## You can also access the deployed app here
-Make sure to use the browser with the metamask account access since the App will require AVAX for executing transactions
-`Vercel Link`: 
