@@ -1,9 +1,9 @@
 # Convert Away DApp
 
-Convert Away DApp is a decentralized application that provides real-time conversion rates of various cryptocurrencies to USD and between different cryptocurrencies.
+Convert Away DApp is a decentralized application that provides real-time conversion rates of various cryptocurrencies to USD and between different cryptocurrencies. The price information is obtained from ChainLink price feed for Avalanche Fuji Testnet.
 
 - Deployed contract address: `0xBd7AfA95d39F1B5Dbe9D164FeCD1b4394EfEcAD7`
-- Deployed DApp Link: 
+- Deployed DApp Link: [Click here to check out the Convert Away DApp](https://convert-away-dapp.netlify.app/)
 
 ## Instructions to run the app
 - When using for local testing make sure to add .env file containing the following information
