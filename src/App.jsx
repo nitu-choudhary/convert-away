@@ -74,17 +74,17 @@ const handleSubmit = (e) => {
 }
 
 return (
-  <div className="container">
+  <div className='conatiner w-100 align-items-center'>
     <Image 
       src='https://seeklogo.com/images/C/chainlink-logo-B072B6B9FE-seeklogo.com.png' 
       alt="Chainlink Logo" 
       width={200} 
       height={200} 
       fluid 
-      className='mt-5'
+      className='mt-5 mx-auto d-block'
     />
     <hr></hr>
-    <div>
+    <div className='d-flex flex-column align-items-center'>
       <Card 
         style={{ width: '32rem' }} 
         className='mt-5 shadow bg-body rounded'>
