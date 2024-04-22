@@ -18,8 +18,8 @@ module.exports = {
   },
   networks: {
     fuji: {
-      url: process.env.QUICKNODE_URL,
-      accounts: [`0x` + process.env.METAMASK_PRIVATE_KEY],
+      url: QUICKNODE_URL,
+      accounts: [`0x` + METAMASK_PRIVATE_KEY],
       chainId: 43113,
     },
   },
