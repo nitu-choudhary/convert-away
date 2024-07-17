@@ -28,3 +28,5 @@ Thanks to Cumulus Cycles youtube channel for the terraform videos to help provis
 Github repo: https://github.com/CumulusCycles/IaC_on_AWS_with_Terraform/blob/main/src/5_Terraform_ECR_ECS/modules/tf-state/variables.tf
 
 Youtube Video: https://www.youtube.com/watch?v=cgTPxw2oGI8
+
+Terraform + Github actions: https://www.youtube.com/watch?v=scecLqTeP3k
