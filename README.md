@@ -21,3 +21,10 @@ VITE_CONTRACT_ADDRESS=<add-the-contract-address-once-compiled-and-deployed-here>
 This is the value for variable `VITE_CONTRACT_ADDRESS` in the .env file.
 - Run the app using the following command
 `yarn dev`
+
+## References for terraform files
+Thanks to Cumulus Cycles youtube channel for the terraform videos to help provision ECR/ ECS infra for convert away dapp.
+
+Github repo: https://github.com/CumulusCycles/IaC_on_AWS_with_Terraform/blob/main/src/5_Terraform_ECR_ECS/modules/tf-state/variables.tf
+
+Youtube Video: https://www.youtube.com/watch?v=cgTPxw2oGI8
