@@ -40,3 +40,18 @@ jobs:
       - name: Terraform Apply
         id: apply
         run: terraform apply -auto-approve
+
+      - name: Sleep for 5 mins
+        run: sleep 300
+
+      - name: Terraform destroy selctive resources after delay to not incur charges
+        id: destroy
+        run: terraform destroy -auto-approve \
+            -target aws_ecs_task_definition.dapp_ecs_task \
+            -target aws_ecs_service.dapp_ecs_service \
+            -target aws_ecs_cluster.dapp_ecs_cluster \
+            -target aws_iam_role.ecs_task_execution_role \
+            -target aws_alb.dapp_alb \
+            -target aws_alb_target_group.dapp_alb_target_group \
+            -target aws_security_group.dapp_ecs_service_sg \
+            -target aws_security_group.dapp_alb_sg 
