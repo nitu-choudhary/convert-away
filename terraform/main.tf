@@ -22,3 +22,8 @@ module "tfState" {
     bucket_name = "dapp-terraform-state"
     table_name  = "dappTFState"
 }
+
+module "ecrRepo" {
+    source        = "./modules/ecr"
+    ecr_repo_name = "dapp-ecr-repo"
+}
