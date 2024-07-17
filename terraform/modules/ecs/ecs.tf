@@ -26,15 +26,15 @@ resource "aws_ecs_task_definition" "dapp_ecs_task" {
             "hostPort": ${var.container_port}
             }
         ],
-        "memory": 2048,
-        "cpu": 1024
+        "memory": 1024,
+        "cpu": 512
         }
     ]
     DEFINITION
   requires_compatibilities = ["FARGATE"]
   network_mode             = "awsvpc"
-  memory                   = 2048
-  cpu                      = 1024
+  memory                   = 1024
+  cpu                      = 512
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
 }
 
