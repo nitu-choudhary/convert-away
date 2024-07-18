@@ -41,23 +41,23 @@ jobs:
         id: apply
         run: terraform apply -auto-approve
 
-      - name: Sleep for 1 mins
-        run: sleep 60
+      # - name: Sleep for 1 mins
+      #   run: sleep 60
 
-      - name: Terraform destroy selective resources after delay to not incur charges
-        id: destroy
-        env:
-          TARGETS: |
-            module.ecsCluster.aws_ecs_task_definition.dapp_ecs_task
-            module.ecsCluster.aws_ecs_service.dapp_ecs_service
-            module.ecsCluster.aws_ecs_cluster.dapp_ecs_cluster
-            module.ecsCluster.aws_iam_role.ecs_task_execution_role
-            module.ecsCluster.aws_alb.dapp_alb
-            module.ecsCluster.aws_alb_target_group.dapp_alb_target_group
-            module.ecsCluster.aws_security_group.dapp_ecs_service_sg
-            module.ecsCluster.aws_security_group.dapp_alb_sg
-            module.ecsCluster.aws_cloudwatch_metric_alarm.ecs-alert_High-CPUReservation
-        run: |
-            for target in $(echo "$TARGETS" | tr '\n' ' '); do
-              terraform destroy -target "$target" -auto-approve
-            done
+      # - name: Terraform destroy selective resources after delay to not incur charges
+      #   id: destroy
+      #   env:
+      #     TARGETS: |
+      #       module.ecsCluster.aws_ecs_task_definition.dapp_ecs_task
+      #       module.ecsCluster.aws_ecs_service.dapp_ecs_service
+      #       module.ecsCluster.aws_ecs_cluster.dapp_ecs_cluster
+      #       module.ecsCluster.aws_iam_role.ecs_task_execution_role
+      #       module.ecsCluster.aws_alb.dapp_alb
+      #       module.ecsCluster.aws_alb_target_group.dapp_alb_target_group
+      #       module.ecsCluster.aws_security_group.dapp_ecs_service_sg
+      #       module.ecsCluster.aws_security_group.dapp_alb_sg
+      #       module.ecsCluster.aws_cloudwatch_metric_alarm.ecs-alert_High-CPUReservation
+      #   run: |
+      #       for target in $(echo "$TARGETS" | tr '\n' ' '); do
+      #         terraform destroy -target "$target" -auto-approve
+      #       done
