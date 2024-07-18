@@ -150,7 +150,7 @@ resource "aws_cloudwatch_metric_alarm" "ecs-alert_High-CPUReservation" {
 
   period              = "60"
   evaluation_periods  = "1"
-  data_points_to_alarm = "1"
+  datapoints_to_alarm = "1"
 
   statistic           = "Average"
   threshold           = "80"
