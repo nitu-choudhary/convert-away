@@ -31,15 +31,7 @@ resource "aws_ecs_task_definition" "dapp_ecs_task" {
               }
           ],
           "memory": 512,
-          "cpu": 256,
-          "logConfiguration": {
-            "logDriver": "awslogs",
-            "options": {
-              "awslogs-group": "/aws/ecs/containerinsights/dapp-ecs-cluster",
-              "awslogs-region": "us-east-1",
-              "awslogs-stream-prefix": "ecs"
-            }
-          }
+          "cpu": 256
         }
     ]
     DEFINITION
@@ -152,12 +144,12 @@ resource "aws_cloudwatch_metric_alarm" "ecs-alert_High-CPUReservation" {
   evaluation_periods  = "1"
   datapoints_to_alarm = "1"
 
-  statistic           = "Average"
-  threshold           = "80"
-  alarm_description   = "This metric monitors CPU Reservation on ECS"
+  statistic         = "Average"
+  threshold         = "80"
+  alarm_description = "This metric monitors CPU Reservation on ECS"
 
-  metric_name         = "CPUReservation"
-  namespace           = "AWS/ECS"
+  metric_name = "CPUReservation"
+  namespace   = "AWS/ECS"
 
   dimensions = {
     ClusterName = var.dapp_ecs_cluster_name
