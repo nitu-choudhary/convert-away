@@ -143,3 +143,25 @@ resource "aws_security_group" "dapp_ecs_service_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+resource "aws_cloudwatch_metric_alarm" "ecs-alert_High-CPUReservation" {
+  alarm_name          = "ecs-alert_High-CPUReservation"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+
+  period              = "60"
+  evaluation_periods  = "1"
+  data_points_to_alarm = "1"
+
+  statistic           = "Average"
+  threshold           = "80"
+  alarm_description   = "This metric monitors CPU Reservation on ECS"
+
+  metric_name         = "CPUReservation"
+  namespace           = "AWS/ECS"
+
+  dimensions = {
+    ClusterName = var.dapp_ecs_cluster_name
+  }
+
+  treat_missing_data = "notBreaching"
+}
