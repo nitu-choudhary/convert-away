@@ -1,5 +1,9 @@
 resource "aws_ecs_cluster" "dapp_ecs_cluster" {
   name = var.dapp_ecs_cluster_name
+  setting {
+    name  = "containerInsights"
+    value = "enabled"
+  }
 }
 
 resource "aws_default_vpc" "default_vpc" {}

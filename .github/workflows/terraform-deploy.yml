@@ -3,7 +3,7 @@ name: Terraform Deploy
 on:
   push:
     branches:
-      - main
+      - terraform
 
 jobs:
   terraform:
@@ -41,8 +41,8 @@ jobs:
         id: apply
         run: terraform apply -auto-approve
 
-      - name: Sleep for 1 mins
-        run: sleep 60
+      - name: Sleep for 5 mins
+        run: sleep 300
 
       - name: Terraform destroy selective resources after delay to not incur charges
         id: destroy
