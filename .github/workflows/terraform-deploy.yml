@@ -41,6 +41,10 @@ jobs:
         id: apply
         run: terraform apply -auto-approve
 
+      - name: Terraform state list
+        id: state-list
+        run: terraform state list
+
       - name: Sleep for 1 mins
         run: sleep 60
 
@@ -48,14 +52,14 @@ jobs:
         id: destroy
         env:
           TARGETS: |
-            module.aws_ecs_task_definition.dapp_ecs_task
-            module.aws_ecs_service.dapp_ecs_service
-            module.aws_ecs_cluster.dapp_ecs_cluster
-            module.aws_iam_role.ecs_task_execution_role
-            module.aws_alb.dapp_alb
-            module.aws_alb_target_group.dapp_alb_target_group
-            module.aws_security_group.dapp_ecs_service_sg
-            module.aws_security_group.dapp_alb_sg
+            aws_ecs_task_definition.dapp_ecs_task
+            aws_ecs_service.dapp_ecs_service
+            aws_ecs_cluster.dapp_ecs_cluster
+            aws_iam_role.ecs_task_execution_role
+            aws_alb.dapp_alb
+            aws_alb_target_group.dapp_alb_target_group
+            aws_security_group.dapp_ecs_service_sg
+            aws_security_group.dapp_alb_sg
         run: |
             for target in $(echo "$TARGETS" | tr '\n' ' '); do
               terraform destroy -target "$target" -auto-approve
