@@ -21,17 +21,25 @@ resource "aws_ecs_task_definition" "dapp_ecs_task" {
   container_definitions    = <<DEFINITION
     [
         {
-        "name": "${var.dapp_ecs_task_name}",
-        "image": "${var.ecr_repo_url}",
-        "essential": true,
-        "portMappings": [
-            {
-            "containerPort": ${var.container_port},
-            "hostPort": ${var.container_port}
+          "name": "${var.dapp_ecs_task_name}",
+          "image": "${var.ecr_repo_url}",
+          "essential": true,
+          "portMappings": [
+              {
+              "containerPort": ${var.container_port},
+              "hostPort": ${var.container_port}
+              }
+          ],
+          "memory": 512,
+          "cpu": 256,
+          "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+              "awslogs-group": "/fargate/service/${var.dapp_ecs_cluster_name}",
+              "awslogs-region": "us-east-1",
+              "awslogs-stream-prefix": "ecs"
             }
-        ],
-        "memory": 512,
-        "cpu": 256
+          }
         }
     ]
     DEFINITION
