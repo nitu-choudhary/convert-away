@@ -48,14 +48,14 @@ jobs:
         id: destroy
         env:
           TARGETS: |
-            aws_ecs_task_definition.dapp_ecs_task
-            aws_ecs_service.dapp_ecs_service
-            aws_ecs_cluster.dapp_ecs_cluster
-            aws_iam_role.ecs_task_execution_role
-            aws_alb.dapp_alb
-            aws_alb_target_group.dapp_alb_target_group
-            aws_security_group.dapp_ecs_service_sg
-            aws_security_group.dapp_alb_sg
+            module.ecsCluster.aws_ecs_task_definition.dapp_ecs_task
+            module.ecsCluster.aws_ecs_service.dapp_ecs_service
+            module.ecsCluster.aws_ecs_cluster.dapp_ecs_cluster
+            module.ecsCluster.aws_iam_role.ecs_task_execution_role
+            module.ecsCluster.aws_alb.dapp_alb
+            module.ecsCluster.aws_alb_target_group.dapp_alb_target_group
+            module.ecsCluster.aws_security_group.dapp_ecs_service_sg
+            module.ecsCluster.aws_security_group.dapp_alb_sg
         run: |
             for target in $(echo "$TARGETS" | tr '\n' ' '); do
               terraform destroy -target "$target" -auto-approve
