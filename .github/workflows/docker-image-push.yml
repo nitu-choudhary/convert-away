@@ -20,8 +20,8 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Get commit hash
-          id: get-commit-hash
-          run: echo "::set-output name=commit-hash::$(git rev-parse --short HEAD)"
+        id: get-commit-hash
+        run: echo "::set-output name=commit-hash::$(git rev-parse --short HEAD)"
 
       - name: Get timestamp
         id: get-timestamp
