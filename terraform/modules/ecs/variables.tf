@@ -47,3 +47,15 @@ variable "dapp_ecs_service_name" {
   description = "ECS service name"
   type        = string
 }
+
+variable "dapp_ecs_service_log_group" {
+  description = "The name of the CloudWatch log group"
+  type        = string
+  default     = "dapp-log-group"
+}
+
+variable "retention_days" {
+  description = "The number of days to retain the logs in the CloudWatch log group"
+  type        = number
+  default     = 2
+}

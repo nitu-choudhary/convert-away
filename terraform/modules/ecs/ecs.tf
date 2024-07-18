@@ -35,7 +35,7 @@ resource "aws_ecs_task_definition" "dapp_ecs_task" {
           "logConfiguration": {
             "logDriver": "awslogs",
             "options": {
-              "awslogs-group": "/fargate/service/${var.dapp_ecs_cluster_name}",
+              "awslogs-group": "${var.dapp_ecs_service_log_group}",
               "awslogs-region": "us-east-1",
               "awslogs-stream-prefix": "ecs"
             }
@@ -164,4 +164,9 @@ resource "aws_cloudwatch_metric_alarm" "ecs-alert_High-CPUReservation" {
   }
 
   treat_missing_data = "notBreaching"
+}
+
+resource "aws_cloudwatch_log_group" "dapp_lg" {
+  name              = var.dapp_ecs_service_log_group
+  retention_in_days = var.retention_days
 }
